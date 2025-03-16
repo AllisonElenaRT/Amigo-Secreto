@@ -1,0 +1,254 @@
+:root {
+    --color-primary: #f4c1e1; /* Rosa claro para el fondo del banner */
+    --color-secondary:#FFF9EB;/*Color crema para el fondo del panel*/
+    --color-button: #f580ca; /* Rosa para botones */
+    --color-button-hover: #ee6195; /* Rosa oscuro para hover */
+    --color-text: #444444;
+    --color-white: #FFFFFF;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Banner */
+.header-banner {
+    flex: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0;
+    position: relative;
+}
+
+.header-banner img {
+    max-height: 400px;
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title {
+    font-size: 56px;
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--color-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 30%;
+}
+
+/* Sección de entrada */
+.input-section {
+    flex: 60%;
+    background-color: #FFF9EB; /* Color crema exacto como en la imagen */
+    border-radius: 40px 40px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    width: 100%;
+}
+
+.section-title {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 20px 0 30px;
+    text-align: center;
+}
+
+/* Contenedor de entrada y botón */
+.input-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 510px;
+    margin-bottom: 30px;
+}
+
+.input-name {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #000;
+    border-radius: 30px 0 0 30px;
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+}
+
+.button-add {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: 2px solid #000;
+    border-left: none;
+    border-radius: 0 30px 30px 0;
+    padding: 0 20px;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+/* Lista de nombres */
+.name-list {
+    list-style: none;
+    width: 100%;
+    max-width: 510px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.name-list li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 8px;
+    border-radius: 30px;
+    border: 2px solid #000;
+}
+
+.name-list li:last-child {
+    border-bottom: none;
+}
+
+.delete-button {
+    background-color: var(--color-button-hover);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+/* Resultado */
+.result-list {
+    margin: 15px 0;
+    min-height: 50px;
+    width: 100%;
+    max-width: 510px;
+    text-align: center;
+}
+
+.winner-announcement {
+    background-color: #fcf5ff;
+    padding: 15px;
+    border-radius: 30px;
+    border: 2px solid var(--color-button);
+    text-align: center;
+    font-size: 18px;
+}
+
+.winner-announcement strong {
+    color: var(--color-button-hover);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Botones */
+.button-container {
+    display: flex;
+    width: 100%;
+    max-width: 510px;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.button-draw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 30px;
+    color: white;
+    background-color: #f580ca; /* Rosa similar al de la imagen */
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button-draw img {
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+.button-clear {
+    background-color: var(--color-button-hover);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+}
+
+/* Animación para el ganador */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.winner-announcement.animate {
+    animation: pulse 0.8s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 36px;
+        position: static;
+        margin-bottom: 20px;
+    }
+    
+    .header-banner img {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+    }
+    
+    .header-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .input-wrapper {
+        max-width: 90%;
+    }
+    
+    .name-list, .result-list, .button-container {
+        max-width: 90%;
+    }
+}
